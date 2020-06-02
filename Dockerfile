@@ -12,3 +12,6 @@ USER postgres
 RUN mkdir -p /var/lib/pgsql/data
 RUN pg_ctl init -D /var/lib/pgsql/data
 RUN /usr/bin/pg_ctl -D /var/lib/pgsql/data start
+
+# GIT
+RUN yum install -y git
