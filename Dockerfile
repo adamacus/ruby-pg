@@ -4,7 +4,7 @@ FROM amazonlinux:latest
 RUN yum install -y git
 
 # RUBY
-RUN yum install -y git gcc make readline-devel openssl-devel tar bzip2 gcc-c++
+RUN yum install -y git gcc make readline-devel openssl-devel tar bzip2 gcc-c++ libxml2-devel
 
 RUN git clone git://github.com/rbenv/rbenv.git ~/.rbenv
 RUN echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bashrc
