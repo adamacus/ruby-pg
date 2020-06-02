@@ -1,5 +1,8 @@
 FROM amazonlinux:latest
 
+# GIT
+RUN yum install -y git
+
 # RUBY
 RUN amazon-linux-extras install ruby2.6 -y
 RUN gem install bundler --version '1.17.2'
@@ -13,5 +16,3 @@ RUN mkdir -p /var/lib/pgsql/data
 RUN pg_ctl init -D /var/lib/pgsql/data
 RUN /usr/bin/pg_ctl -D /var/lib/pgsql/data start
 
-# GIT
-RUN yum install -y git
