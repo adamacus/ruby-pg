@@ -4,9 +4,6 @@ FROM amazonlinux:latest
 RUN yum install -y git
 
 # RUBY
-RUN amazon-linux-extras install ruby2.6 -y
-RUN gem install bundler --version '1.17.2'
-
 RUN yum install -y git gcc make readline-devel openssl-devel tar bzip2
 
 RUN git clone git://github.com/rbenv/rbenv.git ~/.rbenv
@@ -16,6 +13,8 @@ RUN source ~/.bashrc
 RUN git clone git://github.com/rbenv/ruby-build.git /tmp/ruby-build
 RUN /tmp/ruby-build/install.sh
 RUN ruby-build 2.6.6 ~/ruby-2.6.6
+ENV PATH="/tmp/ruby-build/bin:${PATH}"
+RUN ruby --version
 
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
