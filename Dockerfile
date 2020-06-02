@@ -13,7 +13,7 @@ RUN source ~/.bashrc
 RUN git clone git://github.com/rbenv/ruby-build.git /tmp/ruby-build
 RUN /tmp/ruby-build/install.sh
 RUN ruby-build 2.6.6 ~/ruby-2.6.6
-ENV PATH="/tmp/ruby-build/bin:${PATH}"
+ENV PATH="~/ruby-2.6.6/bin:${PATH}"
 RUN ruby --version
 
 # POSTGRES
