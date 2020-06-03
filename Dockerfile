@@ -1,5 +1,5 @@
 FROM amazonlinux:latest
-
+# test
 # GIT
 RUN yum install -y git
 
