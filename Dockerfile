@@ -12,6 +12,11 @@ RUN ruby-build 2.6.6 ~/ruby-2.6.6
 ENV PATH="~/ruby-2.6.6/bin:${PATH}"
 RUN ruby --version
 
+# NODE
+RUN curl -O https://nodejs.org/download/release/v10.13.0/node-v10.13.0-linux-x64.tar.gz
+RUN tar xzf node-v10.13.0-linux-x64.tar.gz
+ENV PATH="~/node-v10.13.0-linux-x64/bin:${PATH}"
+
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
 RUN yum install -y postgresql-server postgresql-devel
