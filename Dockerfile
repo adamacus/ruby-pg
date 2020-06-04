@@ -25,5 +25,7 @@ RUN yum install -y postgresql-server postgresql-devel
 USER postgres
 RUN mkdir -p /var/lib/pgsql/data
 RUN pg_ctl init -D /var/lib/pgsql/data
+RUN sed -i  '/^local all all peer/ s/peer/trust/' /var/lib/pgsql/data/pg_hba.conf
+RUN psql -c 'CREATE role root with LOGIN SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION;'
 
 USER root
