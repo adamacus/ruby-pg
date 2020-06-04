@@ -16,7 +16,7 @@ RUN ruby --version
 RUN curl -O https://nodejs.org/download/release/v10.13.0/node-v10.13.0-linux-x64.tar.gz
 RUN tar xzf node-v10.13.0-linux-x64.tar.gz -C ~
 ENV PATH="~/node-v10.13.0-linux-x64/bin:${PATH}"
-RUN node --version
+RUN ln -s /root/node-v10.13.0-linux-x64/bin/node /usr/local/bin/node
 
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
