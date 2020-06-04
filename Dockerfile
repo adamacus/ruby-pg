@@ -20,7 +20,7 @@ RUN ln -s /root/node-v10.13.0-linux-x64/bin/node /usr/local/bin/node
 
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
-RUN yum install -y postgresql-server postgresql-devel
+RUN yum install -y postgresql-server postgresql-devel postgresql-contrib
 
 USER postgres
 RUN mkdir -p /var/lib/pgsql/data
