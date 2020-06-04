@@ -18,6 +18,9 @@ RUN tar xzf node-v10.13.0-linux-x64.tar.gz -C ~
 ENV PATH="~/node-v10.13.0-linux-x64/bin:${PATH}"
 RUN ln -s /root/node-v10.13.0-linux-x64/bin/node /usr/local/bin/node
 
+# REDIS
+RUN amazon-linux-extras install redis4.0 -y
+
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
 RUN yum install -y postgresql-server postgresql-devel postgresql-contrib
