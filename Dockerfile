@@ -25,8 +25,9 @@ RUN amazon-linux-extras install redis4.0 -y
 RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
 RUN yum install -y ./google-chrome-stable_current_x86_64.rpm
 RUN yum install -y unzip
-RUN export CHROME_DRIVER_VERSION=`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
-RUN curl -O https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+RUN curl -O https://chromedriver.storage.googleapis.com/`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
+# TODO: remove the ls, its for testing
+RUN ls -l 
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin
 
 # POSTGRES
