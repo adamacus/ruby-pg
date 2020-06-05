@@ -17,6 +17,7 @@ RUN curl -O https://nodejs.org/download/release/v10.13.0/node-v10.13.0-linux-x64
 RUN tar xzf node-v10.13.0-linux-x64.tar.gz -C ~
 ENV PATH="~/node-v10.13.0-linux-x64/bin:${PATH}"
 RUN ln -s /root/node-v10.13.0-linux-x64/bin/node /usr/local/bin/node
+RUN npm install yarn -g
 
 # REDIS
 RUN amazon-linux-extras install redis4.0 -y
