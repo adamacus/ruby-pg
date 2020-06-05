@@ -21,6 +21,14 @@ RUN ln -s /root/node-v10.13.0-linux-x64/bin/node /usr/local/bin/node
 # REDIS
 RUN amazon-linux-extras install redis4.0 -y
 
+# CHROME/CHROMEDRIVER
+RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+RUN yum install -y ./google-chrome-stable_current_x86_64.rpm
+RUN yum install -y unzip
+RUN export CHROME_DRIVER_VERSION=`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`
+RUN curl -O https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION/chromedriver_linux64.zip
+RUN unzip chromedriver_linux64.zip -d /usr/local/bin
+
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
 RUN yum install -y postgresql-server postgresql-devel postgresql-contrib
