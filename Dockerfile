@@ -26,8 +26,6 @@ RUN curl -O https://dl.google.com/linux/direct/google-chrome-stable_current_x86_
 RUN yum install -y ./google-chrome-stable_current_x86_64.rpm
 RUN yum install -y unzip
 RUN curl -O https://chromedriver.storage.googleapis.com/`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
-# TODO: remove the ls, its for testing
-RUN ls -l 
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin
 
 # POSTGRES
