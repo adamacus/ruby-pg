@@ -29,6 +29,9 @@ RUN yum install -y unzip
 RUN curl -O https://chromedriver.storage.googleapis.com/`curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 RUN unzip chromedriver_linux64.zip -d /usr/local/bin
 
+# pdftk
+RUN yum -y localinstall https://protext-installers.s3.amazonaws.com/pdftk-2.02-1.el7.x86_64.rpm
+
 # POSTGRES
 RUN amazon-linux-extras install postgresql11 vim epel -y
 RUN yum install -y postgresql-server postgresql-devel postgresql-contrib
